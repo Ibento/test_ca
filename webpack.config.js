@@ -1,6 +1,7 @@
-var path = require('path')
+var path = require('path');
 var webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -58,7 +59,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  plugins: [new ExtractTextPlugin("main.css")],
+  plugins: [new ExtractTextPlugin("main.css"), new HtmlWebpackPlugin()],
   devtool: '#eval-source-map'
 }
 
