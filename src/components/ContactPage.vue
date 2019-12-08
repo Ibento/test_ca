@@ -5,10 +5,10 @@
                 <h1>Contact us</h1>
             </div> 
             <div class="[ contact-form ]">
-                <div class="summary text-red" v-if="$v.form.$error">
+                <div class="[ __summary ] [ --text-red ]" v-if="$v.form.$error">
                     Form has errors, please enter correct information
                 </div>
-                <div class="summary" v-if="$data.form.submitted">
+                <div class="[ __summary ]" v-if="$data.form.submitted">
                     Thank you for contacting us. We will be in touch shortly.
                 </div>
                 <form @submit.prevent="submit" v-if="$data.form.submitted === false">
@@ -115,10 +115,10 @@
 
     
 
-        .summary {
+        .__summary {
             margin-bottom: 10px;
             width: 100%;
-            &.text-red {
+            &.--text-red {
                 color: red;
             }
         }

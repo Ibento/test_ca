@@ -1,17 +1,17 @@
 <template>
     <div class="[ container ][ card-details ]">
         <div class="[ row ]" v-for="data in myCard" :key="data.id">
-            <div class="[ col-sm-3 ][ --image ]">
+            <div class="[ col-sm-3 ][ __image ]">
                 <img v-if="data.imageUrl" :src="data.imageUrl">
                 <img v-else src="../../assets/noimage.jpg" alt="No Image">
     
             </div>
-            <div class="[ col-sm-9 ][ --info ]">
+            <div class="[ col-sm-9 ][ __info ]">
                 <h2 v-if="data.name">{{data.name}}</h2>
                 <div v-if="data.text"><b>About:</b> {{data.text}}</div>
                 <div v-if="data.rarity"><b>Rarity:</b> {{data.rarity}}</div>
                 <div v-if="data.colors"><b>Colors:</b> 
-                    <ul v-for="color in data.colors" :key="color" class="[ --colors ]">
+                    <ul v-for="color in data.colors" :key="color" class="[ __colors ]">
                         <li>{{color}}</li>
                     </ul>
                 </div>
@@ -62,14 +62,17 @@
 <style lang="scss">
     .card-details {
         margin: 20px auto;
-        .--image {
+        .__image {
             img {
                 width: 100%;
             }
         }
-        .--info {
+        .__info {
             text-align: left;
             
+        }
+        .__colors {
+            display: inline-block;
         }
     }
     

@@ -58,29 +58,4 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    .search {
-        margin: 40px auto 20px auto;
-        font-size: 1.2rem;
-
-        .--search-input {
-            padding: 5px 10px;
-            color: rgba(0,0,0,.7);
-            border: 1px solid rgba(0,0,0,.12);
-            background: white;
-
-            &:focus {
-                outline: none;
-            }
-            &::-webkit-input-placeholder {
-                font-size: 12px;
-                color: rgba(0,0,0,.50);
-                font-weight: 100;
-            }
-        }
-  
-        
-    }
-</style>
-
       

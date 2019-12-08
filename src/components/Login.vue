@@ -3,7 +3,7 @@
         <div class="[ col-sm-4 ]"></div>
         <div class="[ col-sm-4 ]">
             <div>
-                <h4 class="[ message ]">
+                <h4 class="[ __message ]">
                     {{ message }}
                 </h4>
                 <form>
@@ -13,7 +13,7 @@
                     <input type="password" placeholder="Password" v-model="password" class="[ form-control ]">
                     <div class="[ error ]" v-if="showPasswordError">Please enter a correct password</div>
                     <br />
-                    <button type="button" v-on:click="login" class="btn btn-default [ submit ]">Submit</button>
+                    <button type="button" v-on:click="login" class="btn btn-default [ __submit ]">Submit</button>
                     
                 </form>
             </div>
@@ -42,7 +42,7 @@ export default {
 </script>
 <style lang="scss">
     .login {
-        .message {
+        .__message {
             margin: 50px auto;
             width: 
             50%;
@@ -51,7 +51,7 @@ export default {
             width: 50%;
             margin: auto;
         }
-        .submit {
+        .__submit {
             background-color: #17a2b8;
             color: #fff;
         }

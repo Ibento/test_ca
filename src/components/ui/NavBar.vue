@@ -38,11 +38,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-    .b-navbar-nav {
-        .pull-right {
-            float: right;
-        }
-    }
-</style>

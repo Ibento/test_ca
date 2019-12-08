@@ -16,6 +16,7 @@ import CardDetails from './components/card/CardDetails.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronDown, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 library.add(faChevronDown, faChevronLeft)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
