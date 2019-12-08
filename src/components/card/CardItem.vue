@@ -47,8 +47,8 @@
 
     }
     .btn-success:hover {
-        background-color: #7DE87E;
-        color: #17a2b8;
+        background-color: #2ed6f1;
+        color: #000;
     }
     img {
         width: 100%;

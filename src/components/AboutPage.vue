@@ -2,14 +2,19 @@
     <div class="[ container ]">
         <div class="[ row ]">
             <div class="[ col-sm-12 ]">
-                <h2>About</h2>
+                <h1>About the game</h1>
             </div>
             <div class="[ col-sm-12 ]">
                 <div class="[ about ]">
-                    <b-card v-b-toggle.collapse-1 variant="primary">
-                        <span class="[ --title ]">DEFEAT YOUR OPPONENT </span>
-                        <font-awesome-icon icon="chevron-down" class="[ --icon ][ __pull-right ]" />
-                    </b-card>
+                    <b-btn v-b-toggle.collapse-1 variant="primary" class="[ --toggle-button ]">
+                        <span class="[ --title ][ __pull-left ]">DEFEAT YOUR OPPONENT </span>
+                        <span class="when-opened">
+                            <font-awesome-icon icon="chevron-down" class="[ --icon ][ __pull-right ]" aria-hidden="true" />
+                        </span>
+                        <span class="when-closed">
+                            <font-awesome-icon  icon="chevron-left" class="[ --icon ][ __pull-right ]" aria-hidden="true" />
+                        </span>
+                    </b-btn>
                     <b-collapse id="collapse-1" class="mt-2">
                         <b-card >
                            <p class="[ --card-text ]">
@@ -32,21 +37,43 @@
 <script>
 
     export default {
-        name: 'AboutPage',
+        name: 'AboutPage'
     }
 </script>
 
 <style lang="scss" scoped>
+
     div.about {
-        .--title {
-            margin: auto;
-        }
-        .--icon.__pull-right {
+        width: 40vw;
+        margin: 20px auto;
+
+        .--toggle-button {
+            background-color: #17a2b8 !important;
+            width: 40vw;
+            border-color: #cccccc;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            padding: 10px 20px;
+            cursor: pointer;
+
+            .--title.__pull-left {
+                margin: auto;
+                float:left;            
+            }
+            .--icon.__pull-right {
                 float:right;
+                margin: 5px auto;
+            }
         }
         .--card-text {
             text-align: left;
+    
+        }
+        .collapsed > .when-opened, :not(.collapsed) > .when-closed {
+            display: none;
         }
     }
+
+
 
 </style>

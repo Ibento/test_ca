@@ -1,53 +1,86 @@
 <template>
-    <div class="[ container ] [ homepage ]">
-        <div class="[ row ]">
-            <div class="[ col-sm-12 ]">
-                <form class="relative">
-                    <input type="text" name="search" id="search" placeholder="Search by name...">
-                    <button @click="searchCards(searchInput)" type="button">Search <i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>
-            </div>
-        </div>
-        <div class="[ row ]">
-            <div v-for="item in cards" class="[ col-sm-4 ]">
-                <CardItem :cardData="item" :key="item.name" />
-            </div>
-        </div>
-    </div>
+    <Login
+        v-bind:showUsernameError="showUsernameError"
+        v-bind:inputUsernameError="inputUsernameError"
+        v-bind:showPasswordError="showPasswordError"
+        v-bind:inputPasswordError="inputPasswordError"
+        v-bind:message="message"
+        @clicked="onClickChild"
+    ></Login>
 </template>
 
 
 <script>
-    import axios from 'axios';
-    import CardItem from './card/CardItem.vue'
-    import offlineCards from '../constants/cards.json'
+    import Login from './Login.vue'
 
     export default {
         name: 'HomePage',
         components: {
-            CardItem
+            Login
         },
         data() {
-            return{
-                cards: offlineCards
-            }
+        return {
+            message: 'Please enter username and password',
+            showUsernameError: false,
+            inputUsernameError: false,
+            showPasswordError: false,
+            inputPasswordError: false
+        }
         },
         methods: {
-            async getJSON(){
-                const app = this;
-                return await axios
-                    .get('https://api.magicthegathering.io/v1/cards')
-                    .then( response => response.data)
-                    .catch((error) => console.log(error))
-
-                },
-                searchCards(query) {
-                    this.cards = this.cards;
+            onClickChild(username, password) {
+                if (username !== localStorage.getItem('username') || password != localStorage.getItem('password')) {
+                    if (username !== localStorage.getItem('username'))
+                    {
+                        this.message = "Please enter correct username";
+                        this.showUsernameError = true;
+                        this.inputUsernameError = true;
+                    } else {
+                        this.showUsernameError = false;
+                        this.inputUsernameError = false;
+                    }
+                    if (password !== localStorage.getItem('password'))
+                    {
+                        this.message = "Please enter correct password";
+                        this.showPasswordError = true;
+                        this.inputPasswordError = true;
+                    } else {
+                        this.showPasswordError = false;
+                        this.inputPasswordError = false;
+                    }
+                } else {
+                    const sessionID = '1341232123';
+                    sessionStorage.setItem('sessionID', sessionID);
+                    this.$router.push({ name: 'Cards' });
                 }
-        },
-        async mounted() {
-           let magicthegathering = await this.getJSON();
-           this.cards = magicthegathering.cards;
+            }
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    .search {
+        margin: 40px auto 20px auto;
+        font-size: 1.2rem;
+
+        .--search-input {
+            padding: 5px 10px;
+            color: rgba(0,0,0,.7);
+            border: 1px solid rgba(0,0,0,.12);
+            background: white;
+
+            &:focus {
+                outline: none;
+            }
+            &::-webkit-input-placeholder {
+                font-size: 12px;
+                color: rgba(0,0,0,.50);
+                font-weight: 100;
+            }
+        }
+  
+        
+    }
+</style>
+
+      
