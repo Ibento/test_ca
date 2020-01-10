@@ -37,7 +37,7 @@
             async getJSON(){
                 const app = this;
                 return await axios
-                    .get('https://api.magicthegathering.io/v1/cards')
+                    .get(MTG_API)
                     .then( response => response.data)
                     .catch((error) => console.log(error))
 

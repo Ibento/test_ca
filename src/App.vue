@@ -9,10 +9,9 @@
   import NavBar from './components/ui/NavBar.vue'
   
   (function () {
-    localStorage.setItem('username', 'oyvind');
-    localStorage.setItem('password', '1234');
-  })
-
+      localStorage.setItem('username', 'oyvind');
+      localStorage.setItem('password', '1234');
+    })();
 
   export default {
     name: 'app',
